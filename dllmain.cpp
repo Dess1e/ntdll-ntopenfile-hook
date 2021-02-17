@@ -69,6 +69,8 @@ void HookNtOpenFile() {
     memset(proc_addr, 0x90, 16);
     // then put shellcode at the start of old ntopenfile
     memcpy(proc_addr, jmp_struct, sizeof jmp_far_bytes);
+
+    delete jmp_struct;
 }
 
 void UnhookNtOpenFile() {
